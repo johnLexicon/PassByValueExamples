@@ -7,16 +7,19 @@ namespace PassByValueExamples
         static void Main(string[] args)
         {
             int i = 1;
+            //En kopia av variabeln i skickas in. 
             PassByValue(i);
-            Console.WriteLine($"Utanför metod i={i}");
+            Console.WriteLine($"Utanför metod i={i}"); //Värdet för i blir oförändrat.
             
             var animal = new Animal();
             animal.Age = 5;
+            //En kopia av referensen skickas in. Ändringar som görs i metoden sker på själva objektet som vi refererar till.
             PassByReference(animal);
-            Console.WriteLine($"Age utanför metod: {animal.Age}");
+            Console.WriteLine($"Age utanför metod: {animal.Age}"); //Värdet blev förändrad i metoden.
 
+            //Keyword ref gör så att vi kan skicka referensen till i variabeln och förändra dess värde i metoden.
             PassIntByRef(ref i);
-            Console.WriteLine($"Utanför metod i={i}");
+            Console.WriteLine($"Utanför metod i={i}"); //Värdet för i blev förändrad i metoden.
         }
 
         static void PassByValue(int i)
